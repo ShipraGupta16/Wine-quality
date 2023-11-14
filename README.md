@@ -16,7 +16,30 @@ Our project will focus on predicting the quality of wine, depending on feature v
 5. Can we group/cluster wines based on their chemical compositions? 
 
 #### Outline
+
 ##### Models - 
 * Classification
 * Linear Regression (accuracy R2, mean score)
 * Possibly Neural Network Optimization (tensorflow, accuracy)
+
+#### Results
+Red Wine:
+
+Features that have a strong positive correlation with quality:
+* Alcohol 
+* Sulphates
+* Citric Acid
+
+Features that have a strong negative correlation with quality:
+* Volatile acidity
+* Total sulfur dioxide 
+
+White Wine:
+
+Features that have a strong positive correlation with quality:
+* Alcohol
+
+Features that have a strong negative correlation with quality:
+* Density
+* Chlorides
+* Volatile acidity 
