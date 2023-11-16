@@ -4,7 +4,12 @@
 
 ##### Dataset Source: UCI ML Archives - [Wine Quality](https://archive.ics.uci.edu/dataset/186/wine+quality)
 
-#### Proposal
+### Tools Used
+#### Date Model Implementation: PySpark, Pandas
+#### Visualizations: Seaborn, Matplotlib
+#### Machine Learning Optimization: Scikit-Learn (Random Forest Classifier, PCA clustering), Tensorflow, Joblib
+
+### Proposal
 
 Our goal was to utilize two separate datasets dedicated to red and white wine and analyze them against various components that make wine great, like acidity, citric acid, pH, etc. With this information, we were keen to explore,
 
@@ -13,19 +18,21 @@ Our goal was to utilize two separate datasets dedicated to red and white wine an
 - Can we group/cluster wines based on their chemical compositions? 
 - How accurate can certain machine learning models be in predicting the type of wine over quality?
 
-#### Analysis
+### Analysis
 
 1. After zipping both datasets for red and white wine, we began by looking into the distribution of our data and we found the following: 
 - Our dataset included more white wine than red wine instances
 - The majority of our wines were of average quality
 
+<img src="www.github.com/ShipraGupta16/Wine-quality/tree/main/Images/wine_count.png">
+
 2. In our correlation plot, we dig deeper into how each ingredient correlates with the other, and how all of this contributes to the quality of wine.
 
 - Immediately we notice that volatile acidity, chlorides, density, and alcohol content have relatively extreme relationships with quality.
-- Other components like sulfur dioxide (which are preservatives ensuring the longevity of wine) positively correlate with residual sugars, as this means that the sugar naturally occurring in grapes is preserved longer. However, this is irrelevant when it comes to wine quality.
+- Other components like sulfur dioxide (preservatives ensuring the longevity of wine) positively correlate with residual sugars, as this means that the sugar naturally occurring in grapes is preserved longer. However, this is irrelevant when it comes to wine quality.
 - It’s also observed with wine of any type, the more alcohol there is in wine, the less density it will have. And higher alcohol content means better quality.
 
-3. We performed a pair plot to compare each attribute that determines wine quality.
+3. We performed a pair plot to compare each attribute determining wine quality.
 - The blue represents the red wine and the green represents the white wine.
 - In our pair plots, we see obvious relationships between volatile acidity and alcohol.
 - While alcohol is equally distributed for red and white types, red wine tends to have more acidic properties.
