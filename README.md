@@ -18,13 +18,16 @@ Our goal was to utilize two separate datasets dedicated to red and white wine an
 - Can we group/cluster wines based on their chemical compositions? 
 - How accurate can certain machine learning models be in predicting the type of wine over quality?
 
+---
+
 ### Analysis
 
 1. After zipping both datasets for red and white wine, we began by looking into the distribution of our data and we found the following: 
 - Our dataset included more white wine than red wine instances
 - The majority of our wines were of average quality
 
-<img src="https://github.com/ShipraGupta16/Wine-quality/blob/main/Images/wine_count.png">
+  <img src="https://github.com/ShipraGupta16/Wine-quality/blob/main/Images/wine_count.png">
+  <img src="https://github.com/ShipraGupta16/Wine-quality/blob/main/Images/wine_quality_distribution.png">
 
 2. In our correlation plot, we dig deeper into how each ingredient correlates with the other, and how all of this contributes to the quality of wine.
 
@@ -32,13 +35,19 @@ Our goal was to utilize two separate datasets dedicated to red and white wine an
 - Other components like sulfur dioxide (preservatives ensuring the longevity of wine) positively correlate with residual sugars, as this means that the sugar naturally occurring in grapes is preserved longer. However, this is irrelevant when it comes to wine quality.
 - It’s also observed with wine of any type, the more alcohol there is in wine, the less density it will have. And higher alcohol content means better quality.
 
+    <img src="https://github.com/ShipraGupta16/Wine-quality/blob/main/Images/wine_correlation.png">
+
 3. We performed a pair plot to compare each attribute determining wine quality.
 - The blue represents the red wine and the green represents the white wine.
 - In our pair plots, we see obvious relationships between volatile acidity and alcohol.
 - While alcohol is equally distributed for red and white types, red wine tends to have more acidic properties.
 
+    <img src="https://github.com/ShipraGupta16/Wine-quality/blob/main/Images/wine_pairplot.png">
+
 4. Volatile acidity has a relatively negative relationship with quality, and this is more prevalent with red wine. It does not seem to affect the quality of white wine. Both red and white wine have a positive relationship when we compare alcohol against quality. It would seem that anything under 10.0% alcohol content would lower the quality score of both red and white wine.
 
+    <img src="https://github.com/ShipraGupta16/Wine-quality/blob/main/Images/wine_lineplot_volatile%20acidity.png">
+    <img src="https://github.com/ShipraGupta16/Wine-quality/blob/main/Images/wine_lineplot_alcohol.png">
 
 #### Machine Learning Optimization
 
@@ -48,6 +57,8 @@ Since our data was primarily a numerical dataset, we found it best to begin clus
 see clear distinctions between each cluster that allow us to categorize how different features set apart each cluster.
 achieve a cumulative variance of 78%
 
+<img src="https://github.com/ShipraGupta16/Wine-quality/blob/main/Images/wine_pca_clustering.png">
+    
 2. Random Forest Classifier / Supervised Learning
 
 We began by using a Random Forest Classifier model using two classes to analyze the accuracy of predictions based on the type of wine. We found our model had very high accuracy. A [source](file:///Users/nivethasundar/Downloads/SDPIT2022-400-408.pdf) published by the University of California, Davis speaks extensively on the accuracy of the Random Forest model when training our dataset. This can confirm that there is no leakage in our dataset.
@@ -59,12 +70,23 @@ Upon this, we decided to pivot into using the same model to predict the quality 
 Our decision tree helped us understand which features heavily contributed to our wine-type predictions. After digging deeper, we notice that sulfur dioxide, chlorides, and volatile acidity play a major role in predicting the type of wine.
 We also plotted a 3D scatter plot to show how these features relate to each other depending on the wine type 0 for low quality and 1 for high quality wines.
 
+<img src="https://github.com/ShipraGupta16/Wine-quality/blob/main/Images/wine_decision_tree.png">
+
 4. Neural Network Model / Deep Learning
 
 Attempt 1 - Dropped the “type” column and utilized all features present in our original data set.
 Began with 3 hidden layers and 1 input as a start.
-Attempt 2 (OPTIMIZED MODEL) - We didn’t change our data frame but instead increased our hidden layers and the amount of nodes in each layer.
+Attempt 2 (OPTIMIZED MODEL) - We didn’t change our data frame but instead increased our hidden layers and the number of nodes in each layer.
 Attempt 3 - We retained columns that were seen to be important features contributing to wine quality predictions in our Random Forest Classifier model. We also reduced our hidden layers once more and used a “tanh” activation function.
+
+|  | Attempt 1 | Attempt 2 (Optimized Model) | Attempt 3 |
+| --------- | --------- | --------- | --------- |
+| Hidden Layers | 3| 4 |3 |
+| Nodes/ Neurons| 20, 10, 8 | 100, 60, 30, 15 | 60, 30, 15 |
+| Activation | relu, relu, sigmoid| relu, relu, relu, relu | relu, relu, tanh |
+| Accuracy Score| 77% (Loss : 0.48) | 80.6% (Loss: 1.7) | 75% (Loss: 0.52) |
+
+---
 
 #### Conclusion
 
