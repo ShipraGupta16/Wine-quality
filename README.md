@@ -24,7 +24,7 @@ Our goal was to utilize two separate datasets dedicated to red and white wine an
 - Our dataset included more white wine than red wine instances
 - The majority of our wines were of average quality
 
-![Wine Count]("www.github.com/ShipraGupta16/Wine-quality/tree/main/Images/wine_count.png")
+<img src="https://github.com/ShipraGupta16/Wine-quality/Images/wine_count.png" title="Wine Count"/>
 
 2. In our correlation plot, we dig deeper into how each ingredient correlates with the other, and how all of this contributes to the quality of wine.
 
